@@ -76,7 +76,7 @@
 
     .chat-box {
       flex: 1;
-      width: 100%;
+      width: 80%;
       overflow-y: auto;
       padding: 16px;
       box-sizing: border-box;
@@ -87,7 +87,7 @@
     }
 
     .message {
-      max-width: 80%;
+      max-width: 70%;
       padding: 14px 20px;
       border-radius: 20px;
       font-size: 1em;
@@ -107,13 +107,13 @@
     }
 
     .input-container {
-      position: relative;
-      bottom: 10px;
-      left: 30%;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 10px;
-      width: 40%;
+      width: 60%;
       max-width: 400px;
       background: #ffffffcc;
       padding: 9px 15px;
@@ -161,21 +161,6 @@
       transform: scale(1.2);
     }
 
-    .color-picker {
-      margin: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1em;
-      color: #3a7bd5;
-    }
-
-    .color-picker input {
-      width: 40px;
-      height: 30px;
-      border: none;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -188,11 +173,6 @@
     <div class="header">
       <h1>I'm Sentimonster</h1>
       <p>Check your mood here!</p>
-    </div>
-
-    <div class="color-picker">
-      <label for="chatboxcolor">Adjust chatbox color:</label>
-      <input type="color" id="chatboxcolor" value="#eaf3fb">
     </div>
 
     <div class="mood-icons">
@@ -223,7 +203,6 @@
   const chatBox = document.getElementById('chat-box');
   const chatForm = document.getElementById('chat-form');
   const userInput = document.getElementById('user-input');
-  const chatboxcolor = document.getElementById('chatboxcolor');
   const mainContent = document.getElementById('main-content');
 
   chatForm.addEventListener('submit', async function(e) {
@@ -250,10 +229,6 @@
     botDiv.textContent = data.bot;
     chatBox.appendChild(botDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
-  });
-
-  chatboxcolor.addEventListener('input', function() {
-    mainContent.style.background = chatboxcolor.value;
   });
 </script>
 
